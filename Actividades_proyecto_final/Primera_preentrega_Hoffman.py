@@ -42,8 +42,40 @@ def login(base_de_datos):
 # Cargar la base de datos
 base_de_datos = cargar_base_de_datos()
 
-# Ejecutar la función de almacenamiento de usuarios y contraseñas
-almacenar(base_de_datos)
 
-# Ejecutar la función de inicio de sesión
-login(base_de_datos)
+
+def menu():
+	"""
+	Función que limpia la pantalla y muestra nuevamente el menu
+	"""
+	os.system('cls') # NOTA para windows tienes que cambiar clear por cls
+	print ("Selecciona una opción")
+	print ("\t1 - Registro")
+	print ("\t2 - Inicio de sesión")
+	print ("\t3 - (Sólo admins) Ver usuarios del sistema")
+	print ("\t0 - Salir")
+
+
+while True:
+	# Se muestra el menu
+	menu()
+    
+	opcionMenu = input("Ingrese un número >> ")
+    
+	if opcionMenu=="1":
+		print ("")
+		input("Has pulsado la opción 1...\npulsa una tecla para continuar")
+		almacenar(base_de_datos)
+		
+		#1break
+	elif opcionMenu=="2":
+		print ("")
+		input("Has pulsado la opción 2...\npulsa una tecla para continuar");login(base_de_datos)
+	elif opcionMenu=="3":
+		print ("")
+		input("Has pulsado la opción 3...\npulsa una tecla para continuar");base_de_datos
+	elif opcionMenu=="0":
+		break
+	else:
+		print ("")
+		input("No has pulsado ninguna opción correcta...\npulsa una tecla para continuar")
