@@ -2,12 +2,12 @@ import json
 import os
 
 def cargar_base_de_datos():
-    if os.path.exists('base_de_datos.json'): # Busca primero si el archivo json existe
-        with open('base_de_datos.json', 'r') as file:
+    if os.path.exists('base_de_datos.json'): # Busca primero si el archivo json ya existe
+        with open('./' + 'base_de_datos.json', 'r') as file:
             base_de_datos = json.load(file)
     else:
         base_de_datos = {}
-        with open('base_de_datos.json', 'w') as file:
+        with open('./' + 'base_de_datos.json', 'w') as file:
             json.dump(base_de_datos, file, indent=4)
     return base_de_datos
 
@@ -22,8 +22,10 @@ def almacenar(base_de_datos):
     else:
         base_de_datos[user] = password
 
-        with open('base_de_datos.json', 'w') as file:
+        with open('./' + 'base_de_datos.json', 'w') as file:
             json.dump(base_de_datos, file, indent=4)
+        
+        print("\nRegistro exitoso")
 
 def login(base_de_datos):
     print('|---------- Inicio de sesión ----------|')
@@ -39,6 +41,14 @@ def login(base_de_datos):
     else:
         print("El usuario ingresado no existe.")
 
+def mostrar(base_de_datos):
+    keys = list(base_de_datos.keys())
+
+    print("Los usuarios del sistema son:")
+    for key in keys:
+        print(key)
+    
+
 # Cargar la base de datos
 base_de_datos = cargar_base_de_datos()
 
@@ -46,13 +56,13 @@ base_de_datos = cargar_base_de_datos()
 
 def menu():
 	"""
-	Función que limpia la pantalla y muestra nuevamente el menu
+	Menu basado en el del tutor Emanuel Tevez
 	"""
-	os.system('cls') # NOTA para windows tienes que cambiar clear por cls
-	print ("Selecciona una opción")
+	print("")
+	print ("Seleccione una opción")
 	print ("\t1 - Registro")
 	print ("\t2 - Inicio de sesión")
-	print ("\t3 - (Sólo admins) Ver usuarios del sistema")
+	print ("\t3 - (Sólo admins) Ver usuarios del sistema") # Supongamos que hay restricciones para ingresar esta opción
 	print ("\t0 - Salir")
 
 
@@ -64,18 +74,15 @@ while True:
     
 	if opcionMenu=="1":
 		print ("")
-		input("Has pulsado la opción 1...\npulsa una tecla para continuar")
 		almacenar(base_de_datos)
-		
-		#1break
 	elif opcionMenu=="2":
 		print ("")
-		input("Has pulsado la opción 2...\npulsa una tecla para continuar");login(base_de_datos)
+		login(base_de_datos)
 	elif opcionMenu=="3":
 		print ("")
-		input("Has pulsado la opción 3...\npulsa una tecla para continuar");base_de_datos
+		mostrar(base_de_datos)
 	elif opcionMenu=="0":
 		break
 	else:
 		print ("")
-		input("No has pulsado ninguna opción correcta...\npulsa una tecla para continuar")
+		input("No has pulsado ninguna opción correcta...\nPulse una tecla para continuar")
