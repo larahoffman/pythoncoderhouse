@@ -1,3 +1,3 @@
 # pythoncoderhouse
 
-# Ejercicios del curso
+# Ejercicios del curso - algunos son hechos por los profes
