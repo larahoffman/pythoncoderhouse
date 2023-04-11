@@ -6,4 +6,4 @@ class ClienteMayorista(Cliente):
         self.puntos = puntos
     
     def __str__(self):
-        return f"Sección mayorista:\n{super().__str__()}\nCantidad de puntos:{self.puntos}"
+        return f"Sección mayorista:\n{super().__str__()}\nCantidad de puntos: {self.puntos}"
