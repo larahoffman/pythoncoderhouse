@@ -6,4 +6,4 @@ class ClienteMinorista(Cliente):
         self.descuento = descuento
     
     def __str__(self):
-        return f"Sección minorista:\n{super().__str__()}\nDescuento (en %): {self.descuento}"
+        return f"{super().__str__()}\nDescuento (en %): {self.descuento}"
