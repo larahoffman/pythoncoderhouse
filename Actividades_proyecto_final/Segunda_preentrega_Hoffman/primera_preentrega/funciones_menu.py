@@ -55,34 +55,37 @@ base_de_datos = cargar_base_de_datos()
 
 
 def menu():
-	"""
-	Menu basado en el del tutor Emanuel Tevez
-	"""
-	print("")
-	print ("Seleccione una opción")
-	print ("\t1 - Registro")
-	print ("\t2 - Inicio de sesión")
-	print ("\t3 - (Sólo admins) Ver usuarios del sistema") # Supongamos que hay restricciones para ingresar esta opción
-	print ("\t0 - Salir")
-
+    """
+    Menu basado en el del tutor Emanuel Tevez
+    """
+    print("")
+    print ("Seleccione una opción")
+    print ("\t1 - Registro")
+    print ("\t2 - Inicio de sesión")
+    print ("\t3 - (Sólo admins) Ver usuarios del sistema") # Supongamos que hay restricciones para ingresar esta opción
+    print ("\t4 - (Sólo admins) SECCIÓN CLIENTES")
+    print ("\t0 - Salir")
 
 while True:
-	# Se muestra el menu
-	menu()
-    
-	opcionMenu = input("Ingrese un número >> ")
-    
-	if opcionMenu=="1":
-		print ("")
-		almacenar(base_de_datos)
-	elif opcionMenu=="2":
-		print ("")
-		login(base_de_datos)
-	elif opcionMenu=="3":
-		print ("")
-		mostrar(base_de_datos)
-	elif opcionMenu=="0":
-		break
-	else:
-		print ("")
-		input("No has pulsado ninguna opción correcta...\nPulse una tecla para continuar")
+    # Se muestra el menu
+    menu()
+
+    opcionMenu = input("Ingrese un número >> ")
+
+    if opcionMenu=="1":
+        print ("")
+        almacenar(base_de_datos)
+    elif opcionMenu=="2":
+        print ("")
+        login(base_de_datos)
+    elif opcionMenu=="3":
+        print ("")
+        mostrar(base_de_datos)
+    elif opcionMenu=="4":
+        print("")
+        break
+    elif opcionMenu=="0":
+        break
+    else:
+        print ("")
+        input("No has pulsado ninguna opción correcta...\nPulse una tecla para continuar")
