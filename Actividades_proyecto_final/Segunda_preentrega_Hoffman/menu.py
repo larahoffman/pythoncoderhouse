@@ -1,9 +1,18 @@
-# import
-from paquete.modulo1 import Cliente
-from paquete.modulo2 import menu
-# objetos
-cliente2 = Cliente(1, "Gabriel Wanchupen", 23, "gabyla@gmail.com", "11-54338976")
+from base_cliente.cliente import *
+from cliente_mayorista.mayorista import ClienteMayorista
+from cliente_minorista.minorista import ClienteMinorista
+from primera_preentrega.funciones_menu import menu
 
+cliente1 = ClienteMayorista(1, "Murisco Company", "contacto@murisco.com.ar", "11-33765091", 1000)
+cliente2 = ClienteMinorista(2, "Juan Perez", "juano@gmail.com", "11-54338976", 5)
+
+print("Datos")
+print(cliente1)
+print("")
 print(cliente2)
+print("")
+print("Acciones:")
+cliente1.enviar_correo()
+cliente2.cambiar_telefono("11-44536166")
 
-menu()
+print(f"El nuevo número de télefono es:{cliente2.telefono}")
