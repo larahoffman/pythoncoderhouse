@@ -1,0 +1,4 @@
+base_cliente
+cliente_mayorista
+cliente_minorista
+primera_preentrega
